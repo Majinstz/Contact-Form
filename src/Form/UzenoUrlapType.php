@@ -24,7 +24,12 @@ class UzenoUrlapType extends AbstractType
                     'class' => 'nevmezo'
                     ]
             ])
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class, [
+                'attr' => [
+                    'placeholder' => 'Email',
+                    'class' => 'emailmezo'
+                    ]
+            ])
             ->add('uzenet', TextAreaType::class, [
                 'attr' => [
                     'placeholder' => 'Üzenet',
