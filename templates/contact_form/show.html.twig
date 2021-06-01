@@ -1,6 +1,68 @@
 {% extends 'base.html.twig' %}
+{% form_theme uzeno_urlap 'bootstrap_4_layout.html.twig' %}
 
-{% block body %}
-    <h1>Írj nekünk egy új üzenetet!</h1>
-    {{ form(uzeno_urlap)}}
+{% block html %}
+<!DOCTYPE html>
+<html>
+    <head>
+    {% block head_css%}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    {% endblock%}
+    {% block head_js %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    {% endblock%}
+        <meta charset="UTF-8">
+        <title>{% block title %}Küldj üzenetet{% endblock %}</title>
+        {% block stylesheets1 %}{{ encore_entry_link_tags('app') }}{% endblock %}
+        {% block stylesheets %}
+            <style>
+                body {
+                    background-color: lightgray;
+                    width: 100%;
+                    align-items: center;
+                }
+                h1 {
+                    margin: auto;
+                    width: 500px;
+                    padding: 10px;
+                    text-align: center;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-style: italic;
+                }
+                .container {
+                    margin: auto;
+                    margin-top: 200px;
+                    width: 750px;
+                    height: 300px;
+                    padding: 10px;
+                }
+
+                label {
+                    font-size: 25px;
+                }
+
+                input, textarea {
+                    width: 100%;
+                    font-size: 20px;
+                }
+
+                form {
+                    font-family: Arial, Helvetica, sans-serif;
+                }
+            </style>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            {% block div %}
+            <div class="container">
+                <h1>Írj nekünk egy új üzenetet!</h1>
+            {{ form(uzeno_urlap)}}
+            {% endblock %}
+            </div>
+        {% endblock %}
+        {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+    </body>
+</html>
 {% endblock %}

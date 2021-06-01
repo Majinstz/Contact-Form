@@ -8,16 +8,34 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
+
 
 class UzenoUrlapType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Nev')
+            ->add('Nev', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Név',
+                    'class' => 'nevmezo'
+                    ]
+            ])
             ->add('email', EmailType::class)
-            ->add('uzenet')
-            ->add('Kuldes', SubmitType::class)
+            ->add('uzenet', TextAreaType::class, [
+                'attr' => [
+                    'placeholder' => 'Üzenet',
+                    'class' => 'uzenetmezo'
+                ]
+            ])
+            ->add('Kuldes', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-success'
+                ]
+            ])
         ;
     }
 
